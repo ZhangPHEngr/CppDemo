@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(CppDemo VERSION 0.1.0)
 #-------------------------项目结构-----------------------
 ADD_SUBDIRECTORY(01.Basic)                  #基础语法
-#ADD_SUBDIRECTORY(02.Class)                 #面向对象
+ADD_SUBDIRECTORY(02.Class)                 #面向对象
 #ADD_SUBDIRECTORY(03.IO)                    #文件系统
 #ADD_SUBDIRECTORY(04.Exception)             #异常处理
 ADD_SUBDIRECTORY(05.STL)                    #STL标准库

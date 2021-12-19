@@ -1,5 +1,8 @@
-#include<memory>
-#include"all.h"
+#include <iostream>
+#include <memory>
+
+using namespace std;
+
 /**
 unique_prt:
 1. 特点：
@@ -28,23 +31,22 @@ move(unique_ptr)让unique_ptr交出裸指针所有权并置空自身
  */
 
 
-using namespace std;
-namespace ptr_demo {
+
 
 //自定义删除器模板
-template <typename T>
-struct Deleter1{
-    void operator()(T* p){
-        cout<<*p<<endl;
-        cout<<"Deleter: dele ptr"<<endl;
+template<typename T>
+struct Deleter1 {
+    void operator()(T *p) {
+        cout << *p << endl;
+        cout << "Deleter: dele ptr" << endl;
         delete p;
     }
 };
 
-struct Deleter2{
-    void operator()(int* p){
-        cout<<*p<<endl;
-        cout<<"Deleter1: dele ptr"<<endl;
+struct Deleter2 {
+    void operator()(int *p) {
+        cout << *p << endl;
+        cout << "Deleter1: dele ptr" << endl;
         delete p;
     }
 };
@@ -52,17 +54,19 @@ struct Deleter2{
 template<typename T>
 using Safe_ptr = unique_ptr<T, Deleter1<T>>;//等同于typedef
 
-int test_unique(){
+int test_unique() {
     //测试1
-    unique_ptr<int>p1;
-    int* array1 = new int(1);
+    unique_ptr<int> p1;
+    int *array1 = new int(1);
     p1.reset(array1);
     //测试2
-    int* array2 = new int(2);
-    Safe_ptr<int> p2(array2,Deleter1<int>());
+    int *array2 = new int(2);
+    Safe_ptr<int> p2(array2, Deleter1<int>());
     //测试3
-    int* array3 = new int(3);
-    unique_ptr<int,Deleter2> p3(array3,Deleter2());
+    int *array3 = new int(3);
+    unique_ptr<int, Deleter2> p3(array3, Deleter2());
 }
+
+int main(int argc, char** argv){
 
 }

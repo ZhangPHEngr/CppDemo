@@ -1,8 +1,6 @@
-#include "all.h"
+#include <iostream>
 #include <functional>
-
-namespace std_function {
-
+using namespace std;
 
 // 传统C函数
 int c_function(int a, int b)
@@ -22,7 +20,6 @@ public:
 
 int main(int argc, char** argv)
 {
-    using namespace std;
     // 万能可调用对象类型
     std::function<int(int, int)> callableObject;
 
@@ -40,30 +37,4 @@ int main(int argc, char** argv)
         return a + b;
     };
     cout << callableObject(3, 4) << endl;
-}
-}
-#include "all.h"
-
-#include <stdint.h>
-
-#include <iostream>
-#include <string>
-
-using namespace std;
-
-struct pp {
-    int a;
-    int b;
-};
-
-namespace sizeof_demo {
-    int test() {
-        cout << sizeof(char) << endl;
-        cout << sizeof(uint8_t) << endl;
-
-        int* ss = new int[10];
-        cout << ss << endl;
-
-        return 0;
-    }
 }

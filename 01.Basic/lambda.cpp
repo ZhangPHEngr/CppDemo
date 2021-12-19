@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "all.h"
+using namespace std;
 /**
  *Lambda表达式：可以被理解为匿名函数
  * 1. 格式：[capture list](param list)->return type{function body};
@@ -15,13 +15,15 @@
  *
  */
 
-namespace lambda_demo {
+
 
 void test() {
   int a = 10;
   int b = 20;
   auto func = [a](int x) -> int { return a + x; };
-  std::cout << func(b) << std::endl;
+  cout << func(b) << endl;
 }
 
-}  // namespace lambda_demo
+int main(int argc, char** argv){
+    test();
+}
